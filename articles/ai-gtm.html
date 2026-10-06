@@ -1,0 +1,211 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Does CRM Still Matter If AI Knows Who to Sell To? Clay vs. Salesforce vs. HubSpot — Anna Yuli Wen</title><meta name="description" content="GTM is becoming programmable. This is the shift from systems that record sales activity to systems that decide who to target, why now, what to say, and what action to take next.">
+<link rel="icon" href="../assets/mark.svg"><link rel="stylesheet" href="../styles.css"></head><body><header class="site-header"><div class="site-shell header-inner">
+<a class="brand" href="../index.html"><span class="brand-mark">AY</span><span>Anna Yuli Wen</span></a>
+<nav class="nav" aria-label="Primary"><a href="../ecosystem.html">Ecosystem</a><a href="../essays.html">Essays</a><a href="../big-tech.html">Big Tech AI</a><a href="../terms.html">Tech Terms</a></nav>
+<button class="mobile-toggle" aria-label="Toggle navigation">☰</button></div></header>
+<main><section class="article-hero"><div class="site-shell"><div class="breadcrumbs"><a href="../index.html">Home</a> / <a href="../essays.html">Essays</a> / Does CRM Still Matter If AI Knows Who to Sell To? Clay vs. Salesforce vs. HubSpot</div><div class="kicker">GTM · CRM · REVENUE SYSTEMS</div><h1>Does CRM Still Matter If AI Knows Who to Sell To? Clay vs. Salesforce vs. HubSpot</h1><p class="article-dek">GTM is becoming programmable. This is the shift from systems that record sales activity to systems that decide who to target, why now, what to say, and what action to take next.</p><div class="tag-row"><span class="article-tag">Clay</span><span class="article-tag">Salesforce</span><span class="article-tag">HubSpot</span><span class="article-tag">GTM Engineering</span><span class="article-tag">CRM</span><span class="article-tag">Intent Data</span><span class="article-tag">RevOps</span><span class="article-tag">MCP</span></div><div class="article-meta"><span>Anna Yuli Wen</span><span>•</span><span>21 min</span><span>•</span><span>Updated October 2026</span></div></div></section><section><div class="site-shell article-layout"><aside class="toc"><b>In this essay</b><a href="#gtm">What GTM is</a><a href="#b2b">Why B2B</a><a href="#data-sources">Data sources</a><a href="#waterfall">Waterfall enrichment</a><a href="#intent">Intent</a><a href="#clay">Clay</a><a href="#automation">Automation</a><a href="#data-economics">Data economics</a><a href="#human-loop">Human loop</a><a href="#events">Events</a><a href="#competitors">Competitors</a><a href="#pricing">Pricing</a><a href="#salesforce">CRM incumbents</a><a href="#internal-clay">Internal Clay</a><a href="#zapier">Zapier + MCP</a><a href="#crm-future">Future of CRM</a><a href="#future">Programmable revenue</a></aside><article class="article-body">
+<h2 id="gtm">GTM is not outbound email</h2>
+<p>Go-to-market is the full system that turns a market into revenue. It includes brand, content, ads, events, partnerships, inbound, outbound, qualification, routing, sales, procurement, onboarding, retention and expansion. Clay is powerful precisely because it does <strong>not</strong> try to own all of GTM. It focuses on the layer where fragmented data has to become a decision.</p>
+
+<div class="diagram"><div class="diagram-title">The B2B GTM funnel</div><div class="flow">
+<div class="node"><strong>Demand</strong><span>Brand, content, ads, events, partners</span></div><div class="arrow">→</div>
+<div class="node"><strong>Identify</strong><span>Accounts, leads, signals</span></div><div class="arrow">→</div>
+<div class="node accent"><strong>Decide</strong><span>Enrich, score, route, research</span></div><div class="arrow">→</div>
+<div class="node"><strong>Sell</strong><span>Outreach, meetings, demos, negotiation</span></div><div class="arrow">→</div>
+<div class="node green"><strong>Expand</strong><span>Onboarding, retention, upsell</span></div>
+</div></div>
+
+<p>Clay’s strongest territory is the middle: <strong>who should we target, why now, which person matters, what do we know, and what should happen next?</strong></p>
+
+<h2 id="b2b">Why Clay is naturally B2B</h2>
+<p>B2B sales has an account structure. A company has firmographic attributes, a buying committee, specific decision-makers and signals that suggest timing. That makes data enrichment unusually valuable.</p>
+<div class="diagram"><div class="diagram-title">B2B account structure</div><div class="stack">
+<div class="stack-row"><div class="stack-label">Account</div><div class="stack-content"><span class="chip">Industry</span><span class="chip">Headcount</span><span class="chip">Funding</span><span class="chip">Tech stack</span><span class="chip">Intent</span></div></div>
+<div class="stack-row"><div class="stack-label">Buying committee</div><div class="stack-content"><span class="chip">CFO</span><span class="chip">VP Sales</span><span class="chip">RevOps</span><span class="chip">Procurement</span></div></div>
+<div class="stack-row"><div class="stack-label">Actions</div><div class="stack-content"><span class="chip">Research</span><span class="chip">Score</span><span class="chip">Route</span><span class="chip">Message</span></div></div>
+</div></div>
+<p>B2C growth usually looks different. Millions of consumers are segmented by behavior, lifecycle and audience attributes, then reached through ads, push, email and product experiences. Clay’s row-by-row account and contact model is much more naturally suited to B2B.</p>
+
+<h2 id="data-sources">The data companies underneath Clay</h2>
+<p>Clay is easier to understand once you realize it does not need to own every dataset. It can orchestrate specialized providers.</p>
+
+<table class="compare-table"><thead><tr><th>Provider / signal</th><th>What it is good at</th><th>Typical GTM use</th></tr></thead><tbody>
+<tr><td>Apollo</td><td>B2B contacts, companies, emails, phones, prospecting</td><td>Find the right people and reach them</td></tr>
+<tr><td>People Data Labs</td><td>API-first person and company data</td><td>Enrichment, identity matching, company attributes</td></tr>
+<tr><td>Clearbit / HubSpot</td><td>Company and contact enrichment, intent</td><td>Improve CRM records and identify visitors/buyers</td></tr>
+<tr><td>Crunchbase</td><td>Funding, investors, company stage</td><td>Use financing/growth as a timing signal</td></tr>
+<tr><td>G2 / Bombora / 6sense</td><td>Intent and account research signals</td><td>Determine who may be actively evaluating a category</td></tr>
+<tr><td>CRM / warehouse</td><td>First-party customer and revenue data</td><td>Ownership, spend, history, opportunity state</td></tr>
+</tbody></table>
+
+<p>The crucial strategic decision is that Clay behaves more like a <strong>data orchestration company</strong> than a single database vendor. If a provider is weak for a particular record, Clay can query another.</p>
+
+<h2 id="waterfall">Waterfall enrichment is a simple but powerful abstraction</h2>
+<div class="diagram"><div class="diagram-title">Waterfall enrichment</div><div class="flow">
+<div class="node"><strong>Need email</strong><span>One contact record</span></div><div class="arrow">→</div>
+<div class="node"><strong>Provider A</strong><span>Found? stop</span></div><div class="arrow">→</div>
+<div class="node"><strong>Provider B</strong><span>Found? stop</span></div><div class="arrow">→</div>
+<div class="node accent"><strong>Provider C</strong><span>Successful enrichment</span></div><div class="arrow">→</div>
+<div class="node green"><strong>Verified record</strong><span>Continue workflow</span></div>
+</div></div>
+<p>This matters because no single B2B dataset has perfect coverage. The orchestration layer can become more valuable than the underlying source for many workflows.</p>
+
+<h2 id="intent">Intent data: the difference between “who fits” and “who is ready now”</h2>
+<p>Firmographic fit answers whether a company <em>could</em> be a customer. Intent signals try to answer whether the company may be actively researching or moving toward a purchase.</p>
+<p>First-party intent can include pricing-page visits, product events, webinar participation or ad engagement. Third-party intent can come from review sites, publisher networks or research-cooperative data. A strong GTM system combines both.</p>
+
+<div class="diagram"><div class="diagram-title">Fit × timing</div><div class="axis">
+<div class="quad"><strong>High fit / low intent</strong><span>Good account, wrong moment. Nurture.</span></div>
+<div class="quad"><strong>High fit / high intent</strong><span>Priority account. Route immediately.</span></div>
+<div class="quad"><strong>Low fit / low intent</strong><span>Ignore.</span></div>
+<div class="quad"><strong>Low fit / high intent</strong><span>Investigate—intent may reveal a new segment.</span></div>
+</div></div>
+
+<h2 id="clay">Clay turns a spreadsheet into a programmable revenue system</h2>
+<p>The classic Clay interface resembles a highly programmable spreadsheet. One row can be one company or one person; each column can be a provider lookup, API call, CRM query, formula, web research result or AI judgment.</p>
+<div class="codebox">IF employee_count > 500
+AND funding_recency < 180 days
+AND intent = "high"
+AND current_crm = "HubSpot"
+
+THEN:
+  research enterprise expansion
+  find VP Sales
+  verify email
+  score account
+  write personalized outreach
+  route to named AE</div>
+<p>That is why the emerging role of <strong>GTM Engineer</strong> matters. The operator is no longer simply performing sales operations manually. They are programming the revenue machine.</p>
+
+<h3>Claygent changes research from manual labor into parallel compute</h3>
+<p>A human SDR can visit a handful of company websites. An agent system can run thousands of structured research tasks: Does this company expose an API? Is it hiring a Head of Sales? Is there evidence of international expansion? Does it have enterprise pricing? The result is then written back into a table that can drive deterministic logic.</p>
+
+<h2 id="automation">How much of the funnel can be automated?</h2>
+<p>A modern workflow can automate a surprisingly long chain:</p>
+<div class="diagram"><div class="diagram-title">Automatable top-of-funnel</div><div class="flow">
+<div class="node"><strong>Source</strong><span>Find accounts</span></div><div class="arrow">→</div>
+<div class="node"><strong>Enrich</strong><span>Company + people</span></div><div class="arrow">→</div>
+<div class="node accent"><strong>Research + score</strong><span>AI + rules</span></div><div class="arrow">→</div>
+<div class="node"><strong>Activate</strong><span>Email, ads, CRM, alerts</span></div><div class="arrow">→</div>
+<div class="node green"><strong>Human sale</strong><span>Discovery, negotiation, relationship</span></div>
+</div></div>
+
+<p>The human still matters heavily once the interaction becomes ambiguous, political or relational: discovery calls, executive dinners, demos, negotiation, procurement and complex account strategy. Clay is better understood as a top-of-funnel intelligence and orchestration layer than as a complete replacement for sales.</p>
+
+
+<h2 id="data-economics">The economics of B2B data are more important than they look</h2>
+<p>Enrichment data is not free, and at enterprise scale it can become a meaningful line item. API-first providers may charge per successful person or company record; contact databases charge through seats, credits or enterprise contracts; intent providers sell premium access to proprietary behavioral signals. A workflow that enriches millions of records can therefore create hundreds of thousands or millions of dollars of annual data spend.</p>
+<p>This is one reason Clay’s role as an aggregator is strategically interesting. A large orchestration platform can negotiate volume pricing across providers, expose a standardized credit system to customers and decide dynamically which source should be queried first. In economic terms, Clay is partly a wholesale buyer and router of B2B data.</p>
+<div class="callout"><h4>Why this matters</h4><p>If a customer had to negotiate, integrate and maintain contracts with ten enrichment vendors separately, the workflow would be operationally expensive even before counting the raw data cost. Clay compresses both procurement complexity and engineering complexity.</p></div>
+
+<h2 id="human-loop">Human-in-the-loop is a feature, not a failure</h2>
+<p>It is tempting to describe AI GTM as a fully autonomous machine that finds prospects and closes deals without humans. That is usually the wrong model for high-value B2B sales. The goal is not necessarily to remove the human. It is to reserve human attention for the parts of the funnel where judgment and relationships are valuable.</p>
+
+<div class="diagram"><div class="diagram-title">Automation boundary in enterprise sales</div><div class="flow">
+<div class="node green"><strong>Machine-first</strong><span>Source, enrich, research, score, route</span></div><div class="arrow">→</div>
+<div class="node accent"><strong>Shared</strong><span>Draft outreach, follow-up, meeting prep</span></div><div class="arrow">→</div>
+<div class="node"><strong>Human-first</strong><span>Discovery, executive trust, negotiation, procurement</span></div>
+</div></div>
+
+<p>For a $300,000 enterprise contract, an executive dinner or a nuanced procurement negotiation may be worth far more than the cost of the human seller. Automation should therefore move the salesperson away from repetitive list building and toward high-value interaction.</p>
+
+<h2 id="events">Clay is not only for cold email</h2>
+<p>The same enrichment and decision layer can orchestrate events, webinars, field marketing, partner motions and advertising audiences.</p>
+<h3>Conference example</h3>
+<div class="codebox">300 attendees
+→ enrich company + title
+→ compare with ICP
+→ identify existing opportunities
+→ score strategic accounts
+→ invite 35 executives to a dinner
+→ route each attendee to the correct account owner</div>
+<h3>Webinar example</h3>
+<div class="codebox">Registered?
+Attended?
+Company size?
+Intent signal?
+Open opportunity?
+Existing customer?
+
+→ High-value prospect: AE outreach
+→ Medium intent: nurture
+→ Existing customer: expansion motion
+→ Low fit: suppress from expensive follow-up</div>
+<p>The core product is therefore not “email sending.” It is a programmable decision layer that determines which commercial action should happen to which entity.</p>
+
+<h2 id="competitors">Clay’s competitors come from five different markets</h2>
+<p>There is no single perfect Clay competitor because Clay sits across several categories at once.</p>
+<table class="compare-table"><thead><tr><th>Category</th><th>Examples</th><th>What they own</th></tr></thead><tbody>
+<tr><td>Data / contacts</td><td>Apollo, ZoomInfo, People Data Labs</td><td>Company/person datasets and prospecting</td></tr>
+<tr><td>Intent / ABM</td><td>6sense, Demandbase, G2, Bombora</td><td>Account signals and prioritization</td></tr>
+<tr><td>Sales engagement</td><td>Outreach, Salesloft, Apollo</td><td>Sequences, cadences, rep workflow</td></tr>
+<tr><td>Workflow automation</td><td>Zapier, n8n</td><td>Cross-application actions and event logic</td></tr>
+<tr><td>CRM AI</td><td>Salesforce Agentforce, HubSpot Breeze</td><td>Native customer context and agent workflows</td></tr>
+</tbody></table>
+<p>Clay’s differentiation is its Lego-like combination of these categories: use whichever data source is best, run custom logic, call an agent, and then activate the result in the system of choice.</p>
+
+<h2 id="pricing">Why Clay's pricing model is evolving</h2>
+<p>Clay historically used credits because many enrichments have a real third-party cost. As the product expands, a single “credit” becomes a poor representation of two distinct resources: <strong>data acquisition</strong> and <strong>workflow execution</strong>. Separating data credits from actions reflects the company’s evolution from enrichment tool toward a broader orchestration platform.</p>
+<p>This matters strategically. If Clay only marked up data, it could be disintermediated by customers buying directly from providers. If it owns the orchestration logic, agent research, routing, governance and execution, the value shifts away from commodity records and toward the revenue system itself.</p>
+
+<h2 id="salesforce">Why Salesforce and HubSpot did not make Clay irrelevant</h2>
+<p>Salesforce’s historical abstraction is the CRM record: Lead, Contact, Account, Opportunity. Its superpower is being the authoritative system of record for sales. Clay starts from a different question: <strong>what should happen before and around those records?</strong></p>
+
+<div class="diagram"><div class="diagram-title">The evolution of the revenue stack</div><div class="flow">
+<div class="node"><strong>System of record</strong><span>What happened?</span></div><div class="arrow">→</div>
+<div class="node accent"><strong>System of intelligence</strong><span>What matters?</span></div><div class="arrow">→</div>
+<div class="node green"><strong>System of action</strong><span>What should happen next?</span></div>
+</div></div>
+
+<p>Salesforce and HubSpot are now aggressively moving into the same territory with prospecting agents, enrichment, intent and automated outreach. That does not invalidate Clay. It changes Clay’s moat requirement.</p>
+
+<h3>Clay’s structural advantage: neutrality</h3>
+<p>Salesforce wants the world to revolve around Salesforce. HubSpot wants the world to revolve around HubSpot. Clay can position itself as a neutral orchestration layer over Salesforce, HubSpot, Snowflake, BigQuery, Apollo, G2, custom APIs and whatever model provider is best.</p>
+<p>This makes Clay particularly attractive in heterogeneous enterprise stacks where the truth is distributed across systems rather than contained in a single CRM.</p>
+
+<h3>The incumbent advantage: data gravity</h3>
+<p>Salesforce and HubSpot already contain account ownership, opportunity history, email, customer status and pipeline. They also control enterprise procurement relationships. When they add AI, they do not start from zero.</p>
+<p>The long-term competitive question is therefore not “can Salesforce build a prospecting agent?” It can. The question is whether GTM teams prefer a tightly integrated CRM-native agent or a more programmable, neutral orchestration layer.</p>
+
+<h2 id="internal-clay">Why large companies often build an internal Clay</h2>
+<p>A large platform may already possess first-party data that is more valuable than any purchased enrichment source: account IDs, spend, product usage, sales ownership, conversion, connection events and historical performance.</p>
+<p>That leads to an internal architecture such as:</p>
+<div class="diagram"><div class="diagram-title">Internal GTM orchestration</div><div class="flow">
+<div class="node"><strong>External / partner leads</strong><span>Potential customers</span></div><div class="arrow">→</div>
+<div class="node"><strong>Identity matching</strong><span>Map to internal account</span></div><div class="arrow">→</div>
+<div class="node accent"><strong>First-party signals</strong><span>Spend, tier, product usage, history</span></div><div class="arrow">→</div>
+<div class="node"><strong>Prioritize + route</strong><span>Ownership and action</span></div><div class="arrow">→</div>
+<div class="node green"><strong>Measure outcome</strong><span>Activation, revenue, retention</span></div>
+</div></div>
+<p>Functionally, this is very close to the same problem Clay solves externally. The main difference is that the platform already owns rich proprietary first-party data.</p>
+
+<h2 id="zapier">Where Zapier sits—and why MCP does not eliminate it</h2>
+<p>MCP standardizes a way for agents to discover and call tools. That does not make production workflow orchestration disappear. Enterprises still need authentication, permissions, event triggers, retries, branching, rate-limit handling, audit history and deterministic steps.</p>
+<div class="diagram"><div class="diagram-title">Judgment and execution can be separate layers</div><div class="flow">
+<div class="node accent"><strong>Agent</strong><span>Reasoning and judgment</span></div><div class="arrow">→</div>
+<div class="node"><strong>MCP / API</strong><span>Tool interface</span></div><div class="arrow">→</div>
+<div class="node green"><strong>Zapier / workflow engine</strong><span>Reliable cross-app execution</span></div>
+</div></div>
+<p>This is why Zapier’s strongest strategic position may be beneath many agents rather than as a single consumer personal agent. It already owns thousands of app integrations, credential flows and deterministic automation primitives.</p>
+
+<h2 id="crm-future">Will AI redefine CRM?</h2>
+<p>CRM will not disappear because enterprises still need authoritative records. Account ownership, contract value, opportunity stage, renewal date and customer status cannot live in an agent’s fuzzy memory. The more plausible shift is that <strong>the CRM database remains critical while the CRM interface becomes less central.</strong></p>
+<p>A sales representative may increasingly ask an agent, “Who are the ten accounts I should contact today, and why?” The agent can use Clay, Salesforce, HubSpot and other systems behind the scenes. The human no longer needs to navigate every CRM screen manually.</p>
+<blockquote>The strategic risk to CRM is not necessarily losing the database. It is losing the user interface and the decision layer above the database.</blockquote>
+
+<h2 id="future">The larger idea: revenue becomes programmable</h2>
+<p>The GTM Engineer combines SQL, APIs, CRM logic, data providers, AI agents and automation. This resembles software engineering because the operator does not merely perform the task. They build a system that performs the task repeatedly.</p>
+<p>The implication is broader than sales automation. Revenue functions that used to be organized around human handoffs can increasingly be represented as data, policies, triggers, models and actions. The company with the best revenue machine may not simply hire the largest sales team. It may encode more of its commercial judgment into software.</p>
+
+<h2 id="sources">Selected sources</h2>
+<ul class="source-list">
+<li><a href="https://www.clay.com/">Clay</a></li>
+<li><a href="https://www.salesforce.com/sales/prospecting/agent/">Salesforce Agentforce Prospecting</a></li>
+<li><a href="https://www.hubspot.com/">HubSpot</a></li>
+<li><a href="https://www.apollo.io/">Apollo</a></li>
+<li><a href="https://www.peopledatalabs.com/">People Data Labs</a></li>
+<li><a href="https://bombora.com/">Bombora</a></li>
+<li><a href="https://zapier.com/">Zapier</a></li>
+</ul>
+</article><aside class="aside"><div class="aside-card"><b>Core lens</b><p>Where does durable value sit if models continue getting better and cheaper?</p></div></aside></div></section></main><footer class="footer"><div class="site-shell footer-inner"><div><div class="brand"><span class="brand-mark">AY</span><span>Anna Yuli Wen</span></div><p class="footer-note">AI × Product × GTM / Growth · New York</p></div><p>Connecting company moves, technical primitives, product strategy, and business models into one coherent map of the AI economy.</p></div></footer><script src="../site-data.js"></script><script src="../script.js"></script></body></html>

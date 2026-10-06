@@ -1,0 +1,242 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Who Owns the Agent Economy? From Harvey and Sierra to Fireworks, Modal, and Browserbase — Anna Yuli Wen</title><meta name="description" content="A technical and commercial map of enterprise agents, vertical AI, voice, browser runtimes, inference infrastructure, compute, and the expert-data supply chain beneath them.">
+<link rel="icon" href="../assets/mark.svg"><link rel="stylesheet" href="../styles.css"></head><body><header class="site-header"><div class="site-shell header-inner">
+<a class="brand" href="../index.html"><span class="brand-mark">AY</span><span>Anna Yuli Wen</span></a>
+<nav class="nav" aria-label="Primary"><a href="../ecosystem.html">Ecosystem</a><a href="../essays.html">Essays</a><a href="../big-tech.html">Big Tech AI</a><a href="../terms.html">Tech Terms</a></nav>
+<button class="mobile-toggle" aria-label="Toggle navigation">☰</button></div></header>
+<main><section class="article-hero"><div class="site-shell"><div class="breadcrumbs"><a href="../index.html">Home</a> / <a href="../essays.html">Essays</a> / Who Owns the Agent Economy? From Harvey and Sierra to Fireworks, Modal, and Browserbase</div><div class="kicker">AGENTS · VERTICAL AI · INFRASTRUCTURE</div><h1>Who Owns the Agent Economy? From Harvey and Sierra to Fireworks, Modal, and Browserbase</h1><p class="article-dek">A technical and commercial map of enterprise agents, vertical AI, voice, browser runtimes, inference infrastructure, compute, and the expert-data supply chain beneath them.</p><div class="tag-row"><span class="article-tag">Harvey</span><span class="article-tag">Sierra</span><span class="article-tag">Decagon</span><span class="article-tag">ElevenLabs</span><span class="article-tag">Zapier</span><span class="article-tag">Fireworks</span><span class="article-tag">Baseten</span><span class="article-tag">Modal</span><span class="article-tag">Browserbase</span><span class="article-tag">Mercor</span></div><div class="article-meta"><span>Anna Yuli Wen</span><span>•</span><span>28 min</span><span>•</span><span>Updated October 2026</span></div></div></section><section><div class="site-shell article-layout"><aside class="toc"><b>In this essay</b><a href="#agents">Agent economy</a><a href="#customer-agents">Enterprise agents</a><a href="#harvey">Harvey / Vertical AI</a><a href="#zapier">Zapier</a><a href="#voice">ElevenLabs</a><a href="#fireworks">Fireworks</a><a href="#baseten-together-modal">Baseten / Together / Modal</a><a href="#browserbase">Browserbase</a><a href="#data-supply">Training data</a><a href="#moats">Moats</a><a href="#conclusion">Conclusion</a></aside><article class="article-body">
+<h2 id="agents">The agent economy starts when AI can act</h2>
+<p>The first wave of generative AI products followed a simple loop: question in, answer out. Agents add planning, tools, state, execution and verification. That seemingly small change creates multiple new markets because intelligence now has to touch real systems.</p>
+
+<div class="diagram"><div class="diagram-title">From chatbot to agent</div><div class="flow">
+<div class="node"><strong>Goal</strong><span>User delegates an outcome</span></div><div class="arrow">→</div>
+<div class="node accent"><strong>Reason + plan</strong><span>Model decides next steps</span></div><div class="arrow">→</div>
+<div class="node"><strong>Tool use</strong><span>API, browser, voice, code</span></div><div class="arrow">→</div>
+<div class="node"><strong>Observe</strong><span>Read result and update state</span></div><div class="arrow">→</div>
+<div class="node green"><strong>Verify</strong><span>Did the real-world task succeed?</span></div>
+</div></div>
+
+<p>The market therefore fragments into specialized layers: enterprise agents that own a business outcome, vertical AI systems that encode professional workflows, voice and browser runtimes that let agents operate in the world, infrastructure that serves models cheaply, and training-data companies that teach agents what “good work” looks like.</p>
+
+<h2 id="customer-agents">Sierra vs. Decagon vs. Salesforce Agentforce</h2>
+<p>Customer service is one of the cleanest early markets for enterprise agents because the output is measurable. A support interaction has a resolution status. A refund either happened or did not. A booking was changed or was not. That creates both a technical benchmark and a business ROI model.</p>
+
+<div class="diagram"><div class="diagram-title">Customer-service agent architecture</div><div class="stack">
+<div class="stack-row"><div class="stack-label">Channel</div><div class="stack-content"><span class="chip">Chat</span><span class="chip">Email</span><span class="chip">SMS</span><span class="chip">Voice</span><span class="chip">WhatsApp</span></div></div>
+<div class="stack-row"><div class="stack-label">Agent brain</div><div class="stack-content"><span class="chip">Reasoning</span><span class="chip">Policy</span><span class="chip">Planning</span><span class="chip">Escalation</span></div></div>
+<div class="stack-row"><div class="stack-label">Enterprise context</div><div class="stack-content"><span class="chip">CRM</span><span class="chip">Orders</span><span class="chip">Billing</span><span class="chip">Knowledge</span></div></div>
+<div class="stack-row"><div class="stack-label">Action</div><div class="stack-content"><span class="chip">Refund</span><span class="chip">Cancel</span><span class="chip">Rebook</span><span class="chip">Upgrade</span></div></div>
+</div></div>
+
+<h3>Sierra: own the customer relationship</h3>
+<p>Sierra’s ambition is not to be a support chatbot. It wants to be the customer-facing digital employee. That means it must combine knowledge, identity, account context and the ability to perform actions in backend systems.</p>
+<p>Its strategic idea is especially interesting because a customer relationship is long-lived. The agent may need to follow up days later, remember a promised action, react to a changed account state, or move between chat, email and voice. The unit is not a single chat session; it is an ongoing customer outcome.</p>
+
+<h3>Decagon: encode the company’s operating procedure</h3>
+<p>Decagon’s important product idea is the Agent Operating Procedure: represent support policy in a form that business teams can author, while retaining deterministic controls underneath. Pure LLM behavior is too probabilistic for enterprise policy; pure code is too rigid for conversational work. AOPs try to bridge the two.</p>
+<div class="codebox">Policy:
+If order_age < 30 days
+AND item_status = unopened
+THEN refund is allowed
+ELSE explain policy and offer escalation
+
+Agent:
+handles natural-language variation
+but executes within policy boundaries</div>
+
+<h3>Salesforce Agentforce: the incumbent advantage is data gravity</h3>
+<p>Salesforce can start with customer identity, account state, cases, purchase history, sales history and workflow context already inside the platform. Sierra and Decagon often have to integrate into those systems. This is a substantial distribution and context advantage.</p>
+<p>But the incumbent also carries a business-model tension: traditional service software monetizes human seats. A successful agent may reduce the number of human seats required. AI-native companies have no reason to protect that legacy revenue model.</p>
+
+<h3>Who owns the enterprise agent layer?</h3>
+<p>The likely outcome is not winner-take-all. Salesforce-heavy companies may prefer Agentforce because context and governance are already native. Heterogeneous enterprises may prefer an independent agent layer such as Sierra or Decagon because it can span multiple systems and remain neutral.</p>
+
+<h2 id="harvey">Harvey: why vertical AI is much more than RAG</h2>
+<p>Retrieval-Augmented Generation is essential in legal AI because the model must answer from matter-specific documents, firm knowledge, precedent and policy. But RAG only solves one problem: supplying the right knowledge at inference time.</p>
+
+<div class="diagram"><div class="diagram-title">What RAG does—and what it does not</div><div class="branch">
+<div class="node accent"><strong>RAG</strong><span>Find relevant documents and put them into model context.</span></div>
+<div class="center">≠</div>
+<div class="node"><strong>Complete legal workflow</strong><span>Plan, compare, extract, verify, redline, cite, escalate.</span></div>
+</div></div>
+
+<p>A serious legal agent reviewing thousands of contracts must ingest documents, classify them, detect clauses, reason against policy, extract structured fields, handle exceptions, build a diligence table, preserve citations and support human verification. That is an agentic workflow plus domain evaluation—not simply vector search.</p>
+
+<h3>Harvey’s moat compounds through workflow data</h3>
+<p>Every legal workflow produces signals: where lawyers correct the system, which documents matter, what counts as a dangerous clause, what language is acceptable, which answers fail review and how expert users judge quality. Those signals can become domain-specific evaluations and eventually post-training data.</p>
+<p>This is the deeper vertical-AI loop:</p>
+<div class="diagram"><div class="diagram-title">Vertical AI flywheel</div><div class="flow">
+<div class="node"><strong>Workflow adoption</strong><span>Real professional tasks</span></div><div class="arrow">→</div>
+<div class="node"><strong>Expert feedback</strong><span>Corrections and outcomes</span></div><div class="arrow">→</div>
+<div class="node accent"><strong>Evals / training</strong><span>Define and improve correctness</span></div><div class="arrow">→</div>
+<div class="node green"><strong>Better domain product</strong><span>More trust and deeper adoption</span></div>
+</div></div>
+
+<h3>Does Harvey need MCP?</h3>
+<p>Not in order to exist, but connectivity is increasingly important. RAG is about knowledge retrieval. MCP and APIs are about connecting tools and systems. A legal agent may need to retrieve from a document-management system, access a data room, write to a matter system or use a research database. The richer the action surface, the more useful standardized connectors become.</p>
+
+<h2 id="zapier">Zapier: why it should not necessarily become a personal agent</h2>
+<p>Zapier’s historical advantage is not intelligence. It is the integration graph: thousands of apps, OAuth connections, triggers, actions, retries, filters, branching, audit trails and workflow state.</p>
+<p>A consumer personal agent would put Zapier into direct competition with companies whose main advantages are conversational interface, consumer distribution and personal context. That is not where Zapier is strongest.</p>
+
+<div class="diagram"><div class="diagram-title">Zapier's stronger strategic position</div><div class="flow">
+<div class="node accent"><strong>Any agent</strong><span>ChatGPT, Claude, enterprise agent</span></div><div class="arrow">→</div>
+<div class="node"><strong>MCP / tool call</strong><span>Standard way to request an action</span></div><div class="arrow">→</div>
+<div class="node green"><strong>Zapier</strong><span>Auth, eventing, retries, branching, 9k+ apps</span></div>
+</div></div>
+
+<h3>Why direct MCP does not eliminate middleware</h3>
+<p>Direct connectivity solves only part of the problem. Production workflows still need credential storage, access control, event triggers, rate-limit handling, retries, deterministic branches and observability. Some workflows should not ask an LLM to re-reason every time. “If contract is signed, create billing account” is better represented as deterministic automation.</p>
+<p>That suggests a layered architecture: the agent handles judgment, MCP standardizes tool discovery, and Zapier or another workflow engine handles reliable multi-system execution.</p>
+
+<h2 id="voice">ElevenLabs: selling the ears, mouth and conversation runtime</h2>
+<p>Siri and Gemini can absolutely compete in voice. The important distinction is the buyer. Siri is an Apple product for Apple users. ElevenLabs can sell voice infrastructure to an airline, insurer, bank, call center, vertical AI company or personal-agent developer.</p>
+
+<div class="diagram"><div class="diagram-title">Real-time voice-agent pipeline</div><div class="flow">
+<div class="node"><strong>Human speech</strong><span>Audio input</span></div><div class="arrow">→</div>
+<div class="node"><strong>ASR / STT</strong><span>Speech → text</span></div><div class="arrow">→</div>
+<div class="node accent"><strong>LLM + tools</strong><span>Reason, retrieve, act</span></div><div class="arrow">→</div>
+<div class="node"><strong>TTS</strong><span>Text → speech</span></div><div class="arrow">→</div>
+<div class="node green"><strong>Conversation</strong><span>Low-latency natural response</span></div>
+</div></div>
+
+<p>The hidden technical problem is turn-taking. Real people pause, interrupt, hesitate and talk over each other. A good voice system must determine whether silence means “I am thinking” or “I am done,” and whether an interruption should immediately stop synthesis. That interaction model is a distinct technical layer, not simply a prettier voice.</p>
+<p>ElevenLabs can therefore remain model-agnostic: use OpenAI, Anthropic, Gemini or a customer-hosted model as the brain while ElevenLabs owns audio quality, speech recognition, turn-taking and telephony integration.</p>
+
+<h2 id="fireworks">Fireworks: the intelligence-infrastructure layer between models and applications</h2>
+<p>Fireworks sits between open/foundation models and AI applications. A vertical company may not want to send every request to a generic frontier API forever. It may want a specialized model, lower inference cost, lower latency, more control and a path to post-training on proprietary data.</p>
+
+<div class="diagram"><div class="diagram-title">Where Fireworks fits</div><div class="flow">
+<div class="node"><strong>Base model</strong><span>Llama, Kimi, Qwen, DeepSeek, etc.</span></div><div class="arrow">→</div>
+<div class="node accent"><strong>Fireworks</strong><span>Post-train, optimize, serve</span></div><div class="arrow">→</div>
+<div class="node green"><strong>Application</strong><span>Harvey, agent, enterprise product</span></div>
+</div></div>
+
+<h3>Fireworks is not a RAG company</h3>
+<p>RAG changes what context a model sees at inference time. Fireworks works on the model and serving system itself: fine-tuning, reinforcement learning, quantization, batching, GPU kernels, memory management, parallelism and routing.</p>
+
+<h3>Continuous batching</h3>
+<p>A GPU is expensive. If requests arrive at different times and lengths, naive serving leaves compute idle. Continuous batching keeps inserting active sequences into the GPU workload so utilization remains high.</p>
+
+<h3>Quantization</h3>
+<p>Using lower-precision representations such as FP8 can reduce memory requirements and memory bandwidth. That can increase throughput and lower serving cost if model quality remains acceptable.</p>
+
+<h3>KV cache</h3>
+<p>Transformers repeatedly reference prior context. Caching key/value states prevents the system from recomputing the entire prefix for every next token. Cache placement, eviction and sharing become major systems problems at scale.</p>
+
+<h3>Sharding and parallelism</h3>
+<p>Large models may not fit on one accelerator. Serving them across multiple GPUs requires careful partitioning and fast interconnects. At this level, networking and GPU communication are part of the model business.</p>
+
+<h3>Speculative decoding</h3>
+<p>A smaller or faster model can propose several future tokens, which the larger model verifies in a batch. When the guesses are accepted, the expensive model does less sequential work.</p>
+
+<p>These optimizations explain why inference infrastructure can be a large standalone business. The customer is often spending enough on GPUs that a modest efficiency improvement produces substantial economic value.</p>
+
+<h2 id="baseten-together-modal">Baseten vs. Together vs. Modal: different abstractions</h2>
+<table class="compare-table"><thead><tr><th>Company</th><th>You give it</th><th>It gives you</th><th>Best mental model</th></tr></thead><tbody>
+<tr><td>Baseten</td><td>A trained model / inference service</td><td>Reliable production model endpoint</td><td>Production model serving</td></tr>
+<tr><td>Together AI</td><td>Open-model AI workloads</td><td>Inference, fine-tuning, training, dedicated compute</td><td>Open-model AI cloud</td></tr>
+<tr><td>Modal</td><td>Python/container workload</td><td>Elastic CPU/GPU execution</td><td>AI-native serverless compute</td></tr>
+</tbody></table>
+
+<h3>Baseten: model → production</h3>
+<p>A research model running in a notebook is not a production service. Baseten packages dependencies, deploys replicas, manages health, routes traffic, scales with demand and exposes an API. Its key abstraction is the model deployment.</p>
+
+<div class="diagram"><div class="diagram-title">Baseten mental model</div><div class="flow">
+<div class="node"><strong>Model</strong><span>Weights + code</span></div><div class="arrow">→</div>
+<div class="node accent"><strong>Packaging</strong><span>Dependencies + config</span></div><div class="arrow">→</div>
+<div class="node"><strong>Serving layer</strong><span>Replicas, routing, autoscaling</span></div><div class="arrow">→</div>
+<div class="node green"><strong>Production API</strong><span>Observable and reliable</span></div>
+</div></div>
+
+<h3>Together AI: open-model cloud</h3>
+<p>Together spans a wider lifecycle: choose an open model, run serverless inference, fine-tune, train, use dedicated GPUs and move from experimentation into production. The closest analogy is a cloud platform designed specifically around open-model AI workloads.</p>
+
+<h3>Modal: compute without managing the cluster</h3>
+<p>Modal is more general. The workload does not have to be a model. It can be an RL rollout, a video pipeline, image generation, scientific compute, code execution or an agent sandbox. The abstraction is the elastic function/container rather than the model endpoint.</p>
+<div class="codebox">@modal.function(gpu="H100")
+def run_job():
+    ...
+
+# Conceptually:
+# request compute → run workload → scale down when finished</div>
+
+<h2 id="browserbase">Browserbase: why a browser becomes infrastructure</h2>
+<p>Browser automation looks trivial until it must operate at internet scale. A single developer can launch Chrome. An agent company serving millions of users must manage isolated sessions, cookies, authentication state, proxies, crashes, concurrency, screenshots, recording and debugging.</p>
+
+<div class="diagram"><div class="diagram-title">Browserbase abstraction</div><div class="flow">
+<div class="node"><strong>Agent</strong><span>Decides what to click or read</span></div><div class="arrow">→</div>
+<div class="node accent"><strong>Browserbase API</strong><span>Provision session and identity</span></div><div class="arrow">→</div>
+<div class="node"><strong>Cloud Chromium</strong><span>Real browser execution</span></div><div class="arrow">→</div>
+<div class="node green"><strong>Website</strong><span>Human-facing web surface</span></div>
+</div></div>
+
+<p>The longer-term opportunity may be agent identity rather than browser hosting alone. A healthy agentic web needs websites to know which software agent is acting, which user it represents and what permissions it has—rather than every bot pretending to be a human browser.</p>
+
+<h2 id="data-supply">Mercor vs. Snorkel AI vs. Scale AI</h2>
+<p>Frontier AI data has evolved from annotation labor into an intelligence supply chain. The model no longer needs a worker merely to label whether an image contains a car. It needs lawyers, doctors, bankers, engineers and consultants who can define expert tasks, judge model work, create rubrics and build realistic environments.</p>
+
+<div class="diagram"><div class="diagram-title">Evolution of AI training signal</div><div class="flow">
+<div class="node"><strong>Data labeling</strong><span>Object / category labels</span></div><div class="arrow">→</div>
+<div class="node"><strong>Preference data</strong><span>Which response is better?</span></div><div class="arrow">→</div>
+<div class="node accent"><strong>Expert tasks</strong><span>Professional demonstrations + rubrics</span></div><div class="arrow">→</div>
+<div class="node green"><strong>RL environments</strong><span>Attempt → verify → reward</span></div>
+</div></div>
+
+<h3>Mercor: start with the expert network</h3>
+<p>Mercor’s original strength was recruiting, evaluating, matching and paying people. That becomes highly valuable when frontier labs need hundreds of specialized professionals. Mercor can assemble the human network, operationalize the work and turn the resulting expertise into datasets, evaluations and environments.</p>
+
+<h3>Snorkel: start with data engineering</h3>
+<p>Snorkel began from a research idea: instead of labeling every example manually, experts can encode labeling functions or heuristics and software can combine noisy signals into probabilistic labels. Its DNA is therefore “how do we engineer training data efficiently?” rather than “how do we recruit a workforce?”</p>
+
+<h3>Scale AI: the first major data infrastructure platform</h3>
+<p>Scale rose through large-scale annotation for autonomous driving and then expanded into RLHF, expert data, red teaming and evaluations. Its history demonstrates a recurring pattern: the data company follows the frontier of what models need.</p>
+
+<table class="compare-table"><thead><tr><th></th><th>Mercor</th><th>Snorkel AI</th><th>Scale AI</th></tr></thead><tbody>
+<tr><td>Original DNA</td><td>Recruiting marketplace</td><td>Programmatic labeling / ML research</td><td>Large-scale data operations</td></tr>
+<tr><td>Core advantage</td><td>Expert supply and operations</td><td>Data-development technology</td><td>Scale, enterprise/lab relationships, infrastructure</td></tr>
+<tr><td>Frontier direction</td><td>Expert datasets, evals, RL environments</td><td>Expert data, benchmarks, RL environments</td><td>RLHF, evaluation, expert data, frontier programs</td></tr>
+</tbody></table>
+
+<h2 id="moats">The durable layers of the agent economy</h2>
+<p>The agent economy rewards companies that control difficult non-model components. The brain will keep improving. The valuable question is what remains hard around the brain.</p>
+
+<div class="diagram"><div class="diagram-title">Where defensibility can accumulate</div><div class="stack">
+<div class="stack-row"><div class="stack-label">Workflow</div><div class="stack-content"><span class="chip">Harvey</span><span class="chip">Sierra</span><span class="chip">Decagon</span></div></div>
+<div class="stack-row"><div class="stack-label">Integration</div><div class="stack-content"><span class="chip">Zapier</span><span class="chip">Enterprise connectors</span></div></div>
+<div class="stack-row"><div class="stack-label">Runtime</div><div class="stack-content"><span class="chip">Browserbase</span><span class="chip">Modal</span><span class="chip">ElevenLabs</span></div></div>
+<div class="stack-row"><div class="stack-label">Inference economics</div><div class="stack-content"><span class="chip">Fireworks</span><span class="chip">Baseten</span><span class="chip">Together</span></div></div>
+<div class="stack-row"><div class="stack-label">Training signal</div><div class="stack-content"><span class="chip">Mercor</span><span class="chip">Snorkel</span><span class="chip">Scale</span></div></div>
+</div></div>
+
+<h2 id="conclusion">From SaaS to Work-as-a-Service</h2>
+<p>The most consequential business-model change may be the unit of sale. Traditional SaaS sells access to software. Copilots sell productivity. Agents can increasingly sell completed work: a resolved ticket, a qualified lead, a legal review, a code change, a customer conversation, a browser task or a production inference workload.</p>
+
+<div class="diagram"><div class="diagram-title">The economic transition</div><div class="flow">
+<div class="node"><strong>Software seat</strong><span>Pay to use the tool</span></div><div class="arrow">→</div>
+<div class="node"><strong>AI usage</strong><span>Pay per token / call / minute</span></div><div class="arrow">→</div>
+<div class="node accent"><strong>Digital labor</strong><span>Pay per completed task</span></div><div class="arrow">→</div>
+<div class="node green"><strong>Outcome</strong><span>Pay for business result</span></div>
+</div></div>
+
+<p>That changes competitive boundaries across the entire software industry. A company that used to sell a tool can become a labor provider. A cloud provider can become an agent runtime. A data vendor can become a training environment company. A vertical application can begin post-training its own models. The stack is becoming more vertically integrated and more modular at the same time.</p>
+<p>The strategic question for every AI company is therefore the same: <strong>which layer do we need to own, and which layers should remain interchangeable?</strong></p>
+
+<h2 id="sources">Selected sources</h2>
+<ul class="source-list">
+<li><a href="https://sierra.ai/">Sierra</a></li>
+<li><a href="https://decagon.ai/">Decagon</a></li>
+<li><a href="https://www.salesforce.com/agentforce/">Salesforce Agentforce</a></li>
+<li><a href="https://www.harvey.ai/">Harvey</a></li>
+<li><a href="https://zapier.com/">Zapier</a></li>
+<li><a href="https://elevenlabs.io/">ElevenLabs</a></li>
+<li><a href="https://fireworks.ai/">Fireworks AI</a></li>
+<li><a href="https://www.baseten.co/">Baseten</a></li>
+<li><a href="https://www.together.ai/">Together AI</a></li>
+<li><a href="https://modal.com/">Modal</a></li>
+<li><a href="https://www.browserbase.com/">Browserbase</a></li>
+<li><a href="https://www.mercor.com/">Mercor</a></li>
+<li><a href="https://snorkel.ai/">Snorkel AI</a></li>
+<li><a href="https://scale.com/">Scale AI</a></li>
+</ul>
+</article><aside class="aside"><div class="aside-card"><b>Core lens</b><p>Where does durable value sit if models continue getting better and cheaper?</p></div></aside></div></section></main><footer class="footer"><div class="site-shell footer-inner"><div><div class="brand"><span class="brand-mark">AY</span><span>Anna Yuli Wen</span></div><p class="footer-note">AI × Product × GTM / Growth · New York</p></div><p>Connecting company moves, technical primitives, product strategy, and business models into one coherent map of the AI economy.</p></div></footer><script src="../site-data.js"></script><script src="../script.js"></script></body></html>

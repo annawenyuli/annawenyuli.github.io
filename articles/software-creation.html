@@ -1,0 +1,184 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Will Engineers Still Write Software? Cursor vs. Cognition vs. Replit vs. Lovable — Anna Yuli Wen</title><meta name="description" content="Four companies look like “AI coding startups.” They are actually betting on four different futures for who creates software, how it is verified, and who owns the control plane.">
+<link rel="icon" href="../assets/mark.svg"><link rel="stylesheet" href="../styles.css"></head><body><header class="site-header"><div class="site-shell header-inner">
+<a class="brand" href="../index.html"><span class="brand-mark">AY</span><span>Anna Yuli Wen</span></a>
+<nav class="nav" aria-label="Primary"><a href="../ecosystem.html">Ecosystem</a><a href="../essays.html">Essays</a><a href="../big-tech.html">Big Tech AI</a><a href="../terms.html">Tech Terms</a></nav>
+<button class="mobile-toggle" aria-label="Toggle navigation">☰</button></div></header>
+<main><section class="article-hero"><div class="site-shell"><div class="breadcrumbs"><a href="../index.html">Home</a> / <a href="../essays.html">Essays</a> / Will Engineers Still Write Software? Cursor vs. Cognition vs. Replit vs. Lovable</div><div class="kicker">SOFTWARE · AGENTS · DIGITAL LABOR</div><h1>Will Engineers Still Write Software? Cursor vs. Cognition vs. Replit vs. Lovable</h1><p class="article-dek">Four companies look like “AI coding startups.” They are actually betting on four different futures for who creates software, how it is verified, and who owns the control plane.</p><div class="tag-row"><span class="article-tag">Cursor</span><span class="article-tag">Cognition</span><span class="article-tag">Replit</span><span class="article-tag">Lovable</span><span class="article-tag">Coding Agents</span><span class="article-tag">Sandbox</span><span class="article-tag">Software Creation</span></div><div class="article-meta"><span>Anna Yuli Wen</span><span>•</span><span>20 min</span><span>•</span><span>Updated October 2026</span></div></div></section><section><div class="site-shell article-layout"><aside class="toc"><b>In this essay</b><a href="#different-bets">Four different bets</a><a href="#software-is-more">Software ≠ code</a><a href="#cursor">Cursor</a><a href="#cognition">Cognition</a><a href="#replit">Replit</a><a href="#lovable">Lovable</a><a href="#origins">Origins</a><a href="#economics">Economics</a><a href="#moats">Moats</a><a href="#investment">Investment lens</a><a href="#compare">Comparison</a><a href="#who-wins">Who wins?</a><a href="#future">Future of creation</a></aside><article class="article-body">
+<h2 id="different-bets">Four companies, four different bets</h2>
+<p>Cursor, Cognition, Replit and Lovable are often grouped together as “AI coding companies.” That label is too shallow. They are optimizing for four different creators, four different workflows and four different definitions of what software production should become.</p>
+
+<table class="compare-table"><thead><tr><th>Company</th><th>Primary user</th><th>What it is really selling</th><th>Core thesis</th></tr></thead><tbody>
+<tr><td>Cursor</td><td>Professional engineer</td><td>An AI-native engineering cockpit</td><td>Engineers remain central, but supervise more AI work</td></tr>
+<tr><td>Cognition / Devin</td><td>Engineering organizations</td><td>Delegatable software-engineering labor</td><td>Many engineering tasks become digital labor</td></tr>
+<tr><td>Replit</td><td>Founders, operators, enterprise builders</td><td>Idea-to-running-software production</td><td>Software creation becomes accessible outside engineering</td></tr>
+<tr><td>Lovable</td><td>Non-technical and semi-technical builders</td><td>Natural-language application generation</td><td>Users should express business intent, not framework choices</td></tr>
+</tbody></table>
+
+<div class="diagram"><div class="diagram-title">How the four companies position the human</div><div class="axis">
+<div class="quad"><strong>Cognition</strong><span>High technical complexity, but more work delegated to autonomous software engineers.</span></div>
+<div class="quad"><strong>Cursor</strong><span>High technical complexity, with the human engineer in tight control.</span></div>
+<div class="quad"><strong>Replit</strong><span>Broader builder audience; AI plus cloud infrastructure handles much of the stack.</span></div>
+<div class="quad"><strong>Lovable</strong><span>Business intent first; technical choices are aggressively abstracted away.</span></div>
+</div></div>
+
+<p>The important distinction is not who generates the best React component. It is <strong>who owns the complete software creation loop</strong>: specification, context, execution, validation, deployment, runtime and maintenance.</p>
+
+<h2 id="software-is-more">Software is much more than code generation</h2>
+<p>A frontier model can write impressive code, but software development is not the same thing as emitting source files. A production application has dependencies, a database, authentication, secrets, storage, environments, CI, deployment, monitoring, permissions and an ongoing bug/iteration loop.</p>
+
+<div class="diagram"><div class="diagram-title">The real software creation pipeline</div><div class="flow">
+<div class="node"><strong>Intent</strong><span>What should the product do?</span></div><div class="arrow">→</div>
+<div class="node"><strong>Architecture</strong><span>Data model, interfaces, boundaries</span></div><div class="arrow">→</div>
+<div class="node accent"><strong>Implementation</strong><span>Code, dependencies, tests</span></div><div class="arrow">→</div>
+<div class="node"><strong>Production</strong><span>Deploy, secrets, database, runtime</span></div><div class="arrow">→</div>
+<div class="node green"><strong>Maintenance</strong><span>Observe, debug, modify, verify</span></div>
+</div></div>
+
+<p>This is the fundamental reason that “just ask GPT to build it” does not fully substitute for Replit, Lovable or an autonomous engineering agent. The model is intelligence. These products wrap intelligence in an execution environment and a workflow.</p>
+
+<h2 id="cursor">Cursor: the engineer remains the center</h2>
+<p>Cursor’s original wedge was easy to understand: an editor that understood your code and made an engineer faster. But the company has steadily moved from autocomplete and chat toward autonomous agents that can inspect a codebase, edit multiple files, run commands, browse the application and create pull requests.</p>
+<p>The product still begins from an important assumption: <strong>a professional engineer remains the owner of architecture and judgment</strong>. AI expands how much that engineer can supervise.</p>
+
+<div class="diagram"><div class="diagram-title">Cursor's control loop</div><div class="flow">
+<div class="node"><strong>Engineer</strong><span>Defines problem and constraints</span></div><div class="arrow">→</div>
+<div class="node accent"><strong>Cursor agent</strong><span>Searches code, edits files, runs tools</span></div><div class="arrow">→</div>
+<div class="node"><strong>Tests / browser</strong><span>Checks implementation behavior</span></div><div class="arrow">→</div>
+<div class="node green"><strong>Engineer review</strong><span>Architecture, code quality, merge</span></div>
+</div></div>
+
+<h3>Why Cursor is more than a model wrapper</h3>
+<p>The hard problem is context selection and tool use. A large repository may contain millions of tokens of irrelevant code. A useful coding agent must decide what to read, when to search, how to preserve architectural context, which command to run, when a failure is meaningful, and when it is actually done. The agent harness is therefore as important as the underlying model.</p>
+<p>Cursor also benefits from a powerful distribution advantage: the IDE is the surface where engineers already spend hours. If software production becomes a process of supervising a fleet of agents, the IDE can evolve into the control plane for that fleet.</p>
+
+<h2 id="cognition">Cognition: engineering labor becomes software</h2>
+<p>Cognition asks a more aggressive question: if a software task is sufficiently well specified, why does a human engineer have to perform every step? Devin is therefore framed less as an assistant and more as a worker to whom a task can be delegated.</p>
+<div class="diagram"><div class="diagram-title">A simplified Devin execution architecture</div><div class="flow">
+<div class="node"><strong>Jira / issue</strong><span>Task and acceptance criteria</span></div><div class="arrow">→</div>
+<div class="node accent"><strong>Devin planner</strong><span>Breaks task into steps</span></div><div class="arrow">→</div>
+<div class="node"><strong>Cloud computer</strong><span>Repo, terminal, browser, packages</span></div><div class="arrow">→</div>
+<div class="node"><strong>Verification loop</strong><span>Tests, observe, debug, retest</span></div><div class="arrow">→</div>
+<div class="node green"><strong>Pull request</strong><span>Output that a team can review</span></div>
+</div></div>
+
+<h3>Why Cognition is naturally B2B</h3>
+<p>The unit economics are much larger inside an engineering organization. An individual developer may pay tens or hundreds of dollars per month. A company with hundreds of engineers is spending tens of millions of dollars on software labor. If an autonomous agent can complete even a meaningful minority of routine migration, testing, bug-fixing and maintenance work, the enterprise value pool is enormous.</p>
+
+<h3>What is the moat if OpenAI, Anthropic and Google all build coding agents?</h3>
+<p>This is the central strategic risk. Cognition cannot rely on “our model writes code.” Model labs are moving down-stack. Its durable layer has to be the <strong>software engineering operating system</strong>: task decomposition, execution environments, codebase context, evaluation, enterprise security, Git/Jira/CI integration and proprietary training signal from successful and failed engineering trajectories.</p>
+<p>Verification is especially important. Code generation is cheap if no one can prove it works. An autonomous engineering product has to distinguish “the model claims it is done” from “the build passes, tests pass, UI behavior is correct, and the change did not introduce regressions.”</p>
+
+<h2 id="replit">Replit: own the whole factory, not just the editor</h2>
+<p>Replit began as a cloud development environment long before AI coding agents became the dominant narrative. That history matters. It already had an editor, runtime, package management, collaboration, hosting and deployment. Once AI became capable enough, Replit could hand an entire cloud software environment to the agent.</p>
+
+<div class="diagram"><div class="diagram-title">Why Replit is structurally different from a bare model</div><div class="stack">
+<div class="stack-row"><div class="stack-label">User intent</div><div class="stack-content"><span class="chip">“Build a customer portal”</span></div></div>
+<div class="stack-row"><div class="stack-label">Agent</div><div class="stack-content"><span class="chip">Plan</span><span class="chip">Design</span><span class="chip">Code</span><span class="chip">Debug</span></div></div>
+<div class="stack-row"><div class="stack-label">Managed app stack</div><div class="stack-content"><span class="chip">Runtime</span><span class="chip">Database</span><span class="chip">Auth</span><span class="chip">Secrets</span><span class="chip">Storage</span></div></div>
+<div class="stack-row"><div class="stack-label">Production</div><div class="stack-content"><span class="chip">Deploy</span><span class="chip">Autoscale</span><span class="chip">Domain</span><span class="chip">Rollback</span></div></div>
+</div></div>
+
+<p>This changes Replit’s target market. The company is no longer limited to programmers. The interesting user can be a finance operator who understands a workflow better than engineering does, a founder prototyping a product, or a sales team building an internal account tool. The promise is not “learn to code faster.” It is “turn operational knowledge into software without waiting for the engineering backlog.”</p>
+
+<h3>How Replit monetizes</h3>
+<p>The model is broader than an IDE subscription. It can charge for the software-building product, model usage, compute, hosting and enterprise controls. This matters because a successful application continues consuming Replit infrastructure after it has been generated.</p>
+
+<h3>Why it can be stronger than asking a frontier model directly</h3>
+<p>A general-purpose model gives you intelligence. Replit can give that intelligence persistent files, a runtime, a database, authentication, deployment state and a feedback loop in which the agent actually runs what it built. That execution surface is a product asset in its own right.</p>
+
+<h2 id="lovable">Lovable: shrink the solution space</h2>
+<p>Lovable pushes abstraction further. The user should not have to choose a framework, manage a terminal, install a database driver or reason about infrastructure. The user should describe the business system they want.</p>
+<p>One of the company’s important technical product choices is <strong>opinionation</strong>. Supporting every framework sounds powerful, but it gives an AI agent a huge solution space. A narrower, standardized web stack makes generated applications more consistent, easier to repair and easier to deploy.</p>
+
+<div class="diagram"><div class="diagram-title">Lovable's abstraction</div><div class="flow">
+<div class="node"><strong>Business intent</strong><span>“Vendor approval workflow”</span></div><div class="arrow">→</div>
+<div class="node accent"><strong>Opinionated generator</strong><span>UI + schema + logic + auth</span></div><div class="arrow">→</div>
+<div class="node"><strong>Integrations</strong><span>Payments, CRM, email, data</span></div><div class="arrow">→</div>
+<div class="node green"><strong>Running application</strong><span>User sees product, not infrastructure</span></div>
+</div></div>
+
+<p>This is also why integrations are becoming strategically important. A generated application is useless if it cannot touch Stripe, Salesforce, Gmail, Slack or the company’s database. As generated software becomes more capable, software creation and integration infrastructure begin to converge.</p>
+
+<h2 id="compare">Where the products overlap—and where they do not</h2>
+<table class="compare-table"><thead><tr><th>Dimension</th><th>Cursor</th><th>Cognition</th><th>Replit</th><th>Lovable</th></tr></thead><tbody>
+<tr><td>Primary identity</td><td>AI IDE / engineering cockpit</td><td>Autonomous software engineer</td><td>Cloud software factory</td><td>Natural-language app builder</td></tr>
+<tr><td>Human skill assumed</td><td>High</td><td>Medium-high at management/review layer</td><td>Medium to low</td><td>Low</td></tr>
+<tr><td>Best fit</td><td>Existing professional codebases</td><td>Delegatable engineering tasks</td><td>End-to-end product creation</td><td>Business applications and fast generation</td></tr>
+<tr><td>Execution environment</td><td>Local + cloud agents</td><td>Autonomous cloud computers</td><td>Integrated cloud runtime</td><td>Managed opinionated web stack</td></tr>
+<tr><td>Major strategic risk</td><td>Model labs commoditize coding assistance</td><td>Model labs replicate autonomy</td><td>Generated apps remain shallow or hard to maintain</td><td>Complex apps eventually require engineering depth</td></tr>
+</tbody></table>
+
+
+<h2 id="origins">Origins matter: each company started with a different wedge</h2>
+<p>The four companies converged on AI coding from different starting points, and those origins still shape their product architecture.</p>
+<p><strong>Replit</strong> began as a cloud IDE and collaborative execution environment. Its pre-AI asset was already the runtime: code could be written, executed and hosted in the browser. When coding agents improved, Replit did not need to invent a cloud computer around them; it could let the agent operate an existing software-production environment.</p>
+<p><strong>Cursor</strong> entered from the professional developer surface. The wedge was a familiar editor with dramatically better code understanding and generation. This gave it distribution among engineers before it had to solve end-to-end app creation.</p>
+<p><strong>Cognition</strong> entered with the opposite marketing message: the product was not another editor. Devin was presented as a software engineer that could receive a task and work independently. That forced Cognition to build autonomous execution, evaluation and task management much earlier.</p>
+<p><strong>Lovable</strong> entered from the non-engineer side. Its core insight is that business users should describe the application they want rather than learn the vocabulary of software production. That creates a very different product priority: fewer technical choices, faster visible output, and a highly opinionated stack.</p>
+
+<div class="diagram"><div class="diagram-title">Different wedges, converging market</div><div class="flow">
+<div class="node"><strong>Cursor</strong><span>Editor → agents → cloud engineering</span></div><div class="arrow">↘</div>
+<div class="node accent"><strong>Software creation control plane</strong><span>Intent, code, agents, runtime, eval, deploy</span></div><div class="arrow">↗</div>
+<div class="node"><strong>Cognition</strong><span>Autonomous SWE → multi-agent engineering</span></div>
+</div><div class="flow" style="margin-top:10px">
+<div class="node"><strong>Replit</strong><span>Cloud IDE → Agent → software factory</span></div><div class="arrow">↗</div>
+<div class="node green"><strong>Shared destination</strong><span>Own more of the creation loop</span></div><div class="arrow">↖</div>
+<div class="node"><strong>Lovable</strong><span>Prompt → app → business software platform</span></div>
+</div></div>
+
+<h2 id="economics">Monetization reveals what each company wants to become</h2>
+<p>Pricing is not merely a packaging choice; it reveals the unit of value a company believes it owns.</p>
+<table class="compare-table"><thead><tr><th>Company</th><th>Monetization direction</th><th>Strategic implication</th></tr></thead><tbody>
+<tr><td>Cursor</td><td>Per-user subscription plus model/agent usage and enterprise plans</td><td>Still anchored to the professional engineering seat, but cloud agents expand usage economics</td></tr>
+<tr><td>Cognition</td><td>Self-serve plans plus enterprise usage / capacity</td><td>Can migrate from software pricing toward digital-labor pricing</td></tr>
+<tr><td>Replit</td><td>Subscription + AI usage + compute/hosting + enterprise</td><td>Captures economics both while software is generated and while it runs</td></tr>
+<tr><td>Lovable</td><td>Subscription / generation usage + enterprise governance</td><td>Expands from prosumer creation into organizational application building</td></tr>
+</tbody></table>
+<p>This is one reason Replit’s model is strategically interesting: if the generated application remains hosted on its platform, Replit participates in the recurring infrastructure economics after the act of creation. Cognition has a different upside: if customers begin thinking in “engineering tasks completed” rather than “software seats purchased,” the addressable spend moves toward labor budgets.</p>
+
+<h2 id="moats">The moat is not code generation</h2>
+<p>Every company in this market faces the same threat: frontier models improve rapidly, and the labs themselves increasingly ship coding agents. A defensible company therefore needs assets above and below the model.</p>
+<table class="compare-table"><thead><tr><th>Moat layer</th><th>Why it matters</th><th>Who is naturally strong</th></tr></thead><tbody>
+<tr><td>Distribution / habit</td><td>Where the creator already works every day</td><td>Cursor</td></tr>
+<tr><td>Execution environment</td><td>Reliable terminals, browsers, repositories, package managers and deployment</td><td>Cognition, Replit</td></tr>
+<tr><td>Application runtime</td><td>Database, auth, hosting, secrets and production state</td><td>Replit, Lovable</td></tr>
+<tr><td>Verification / evals</td><td>Proving a software task is actually correct</td><td>Cognition, Cursor</td></tr>
+<tr><td>Enterprise context</td><td>Codebase history, permissions, architecture, internal systems</td><td>Cursor, Cognition</td></tr>
+<tr><td>Opinionated generation</td><td>Restricting the solution space to improve reliability</td><td>Lovable</td></tr>
+</tbody></table>
+<p>The more capable foundation models become, the more the bottleneck moves toward execution and verification. A model may know how to write a migration. The valuable system knows which repository to modify, what internal convention to respect, how to run the correct test suite, how to inspect a failure, which secret it may access, and whether the deployment actually works.</p>
+
+<h2 id="investment">What current valuations are really pricing</h2>
+<p>High private-market valuations in this category should not be read as a literal prediction of the winner. They price the size of the labor or software market each company could theoretically absorb.</p>
+<p>Cognition’s especially aggressive valuation narrative reflects a very large target: the global software-engineering labor pool. Lovable’s story is not “another developer tool” either; it is the possibility that millions of business users create software without entering engineering. Replit’s ambition expands from builder tool to enterprise software-production platform. Cursor’s value comes from controlling the professional engineering surface and potentially becoming the command center for agent fleets.</p>
+<p>The key investor question is therefore not “which company has better code completion?” It is “which company can turn its initial wedge into the default control plane for a much larger category of work?”</p>
+
+<h2 id="who-wins">Who wins if software itself becomes generated?</h2>
+<p>The answer depends on what the future looks like.</p>
+<p><strong>If professional engineers remain the main creators</strong>, Cursor has the cleanest position: it owns the environment in which human judgment and agent labor meet.</p>
+<p><strong>If software engineering tasks become a labor marketplace</strong>, Cognition has the larger economic story: companies buy completed engineering work rather than individual productivity.</p>
+<p><strong>If software creation spreads to every knowledge worker</strong>, Replit can become a general software production platform rather than an engineering tool.</p>
+<p><strong>If large categories of SaaS become generated on demand</strong>, Lovable’s thesis becomes the most disruptive. A finance team may no longer buy a rigid expense-approval SaaS product; it may describe its unique workflow and generate the software it needs.</p>
+
+<div class="callout"><h4>The most important strategic question</h4><p>The long-term winner may not be the company that generates code best. It may be the company that becomes the <strong>software creation control plane</strong>: the place where intent is specified, agents are coordinated, permissions are enforced, tests define correctness, and software is deployed and maintained.</p></div>
+
+<h2 id="future">What changes when code stops being the primary interface?</h2>
+<p>If agents can reliably implement and maintain applications, source code may gradually become more like an implementation artifact than the main way humans express product logic. The higher-value objects become specifications, business rules, evaluation suites, permissions, architecture and production state.</p>
+
+<div class="diagram"><div class="diagram-title">From code-centric creation to intent-centric creation</div><div class="flow">
+<div class="node"><strong>Past</strong><span>Human intent → human-written code</span></div><div class="arrow">→</div>
+<div class="node accent"><strong>Transition</strong><span>Human intent → AI-generated code → human review</span></div><div class="arrow">→</div>
+<div class="node green"><strong>Possible future</strong><span>Human intent → agent system → continuously maintained software</span></div>
+</div></div>
+
+<p>That is why these companies command valuations far beyond what a “better editor” would imply. They are competing for control of the production system that turns business intent into running software.</p>
+
+<h2 id="sources">Selected sources</h2>
+<ul class="source-list">
+<li><a href="https://www.cursor.com/">Cursor</a></li>
+<li><a href="https://cognition.ai/">Cognition / Devin</a></li>
+<li><a href="https://replit.com/">Replit</a></li>
+<li><a href="https://lovable.dev/">Lovable</a></li>
+</ul>
+</article><aside class="aside"><div class="aside-card"><b>Core lens</b><p>Where does durable value sit if models continue getting better and cheaper?</p></div></aside></div></section></main><footer class="footer"><div class="site-shell footer-inner"><div><div class="brand"><span class="brand-mark">AY</span><span>Anna Yuli Wen</span></div><p class="footer-note">AI × Product × GTM / Growth · New York</p></div><p>Connecting company moves, technical primitives, product strategy, and business models into one coherent map of the AI economy.</p></div></footer><script src="../site-data.js"></script><script src="../script.js"></script></body></html>

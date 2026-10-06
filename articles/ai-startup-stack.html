@@ -1,0 +1,165 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Who Actually Makes Money in AI? A Map of the Entire Stack — Anna Yuli Wen</title><meta name="description" content="A layer-by-layer map of where AI value accrues—from models and inference to runtimes, vertical applications, enterprise agents, and training data.">
+<link rel="icon" href="../assets/mark.svg"><link rel="stylesheet" href="../styles.css"></head><body><header class="site-header"><div class="site-shell header-inner">
+<a class="brand" href="../index.html"><span class="brand-mark">AY</span><span>Anna Yuli Wen</span></a>
+<nav class="nav" aria-label="Primary"><a href="../ecosystem.html">Ecosystem</a><a href="../essays.html">Essays</a><a href="../big-tech.html">Big Tech AI</a><a href="../terms.html">Tech Terms</a></nav>
+<button class="mobile-toggle" aria-label="Toggle navigation">☰</button></div></header>
+<main><section class="article-hero"><div class="site-shell"><div class="breadcrumbs"><a href="../index.html">Home</a> / <a href="../essays.html">Essays</a> / Who Actually Makes Money in AI? A Map of the Entire Stack</div><div class="kicker">ECOSYSTEM · BUSINESS ARCHITECTURE</div><h1>Who Actually Makes Money in AI? A Map of the Entire Stack</h1><p class="article-dek">A layer-by-layer map of where AI value accrues—from models and inference to runtimes, vertical applications, enterprise agents, and training data.</p><div class="tag-row"><span class="article-tag">AI Stack</span><span class="article-tag">OpenAI</span><span class="article-tag">Anthropic</span><span class="article-tag">Fireworks</span><span class="article-tag">Modal</span><span class="article-tag">Harvey</span><span class="article-tag">Agents</span><span class="article-tag">Infrastructure</span></div><div class="article-meta"><span>Anna Yuli Wen</span><span>•</span><span>18 min</span><span>•</span><span>Updated October 2026</span></div></div></section><section><div class="site-shell article-layout"><aside class="toc"><b>In this essay</b><a href="#thesis">The thesis</a><a href="#models">Foundation models</a><a href="#infra">AI infrastructure</a><a href="#runtime">Runtimes</a><a href="#apps">Horizontal AI</a><a href="#vertical">Vertical AI</a><a href="#agents">Enterprise agents</a><a href="#data">Training data</a><a href="#archetypes">Archetypes</a><a href="#convergence">Convergence</a><a href="#investor-lens">Investor lens</a><a href="#moats">Moats</a><a href="#incumbents">Incumbents</a><a href="#conclusion">Conclusion</a></aside><article class="article-body">
+<h2 id="thesis">The thesis: AI is becoming a full economic stack</h2>
+<p>The least useful way to analyze an AI company is to say that it “uses a large language model.” That is roughly as informative as saying that Amazon, Salesforce and Cloudflare all “use the internet.” The more useful question is <strong>which layer of the AI economy the company is trying to own</strong>—and whether that layer becomes more valuable or less valuable as foundation models improve.</p>
+<blockquote>The durable companies in AI will not merely access intelligence. They will own context, workflow, execution, distribution, infrastructure, or the system of record around that intelligence.</blockquote>
+
+<div class="diagram"><div class="diagram-title">A practical map of the 2026 AI economy</div><div class="stack">
+<div class="stack-row"><div class="stack-label">Work / Applications</div><div class="stack-content"><span class="chip">Cursor</span><span class="chip">Cognition</span><span class="chip">Replit</span><span class="chip">Lovable</span><span class="chip">Clay</span><span class="chip">Harvey</span><span class="chip">Sierra</span></div></div>
+<div class="stack-row"><div class="stack-label">Action / Orchestration</div><div class="stack-content"><span class="chip">Agents</span><span class="chip">MCP</span><span class="chip">Zapier</span><span class="chip">APIs</span><span class="chip">Workflow engines</span></div></div>
+<div class="stack-row"><div class="stack-label">Specialized Runtimes</div><div class="stack-content"><span class="chip">ElevenLabs</span><span class="chip">Browserbase</span><span class="chip">Agent sandboxes</span></div></div>
+<div class="stack-row"><div class="stack-label">Model / Inference</div><div class="stack-content"><span class="chip">Fireworks</span><span class="chip">Baseten</span><span class="chip">Together AI</span></div></div>
+<div class="stack-row"><div class="stack-label">Compute</div><div class="stack-content"><span class="chip">Modal</span><span class="chip">AWS</span><span class="chip">GCP</span><span class="chip">Azure</span><span class="chip">GPU clouds</span></div></div>
+<div class="stack-row"><div class="stack-label">Training Signal</div><div class="stack-content"><span class="chip">Mercor</span><span class="chip">Snorkel AI</span><span class="chip">Scale AI</span></div></div>
+</div></div>
+
+<p>The important point is that <strong>models are only one layer</strong>. The moment a model has to do real work, an entire surrounding economy appears: it needs enterprise context, permissions, tools, execution environments, browser sessions, voice systems, model serving infrastructure, observability, evaluation data, and a business workflow in which its output actually matters.</p>
+
+<h2 id="models">Layer 1 — Foundation models: intelligence becomes a primitive</h2>
+<p>Foundation model companies manufacture the raw capability that the rest of the stack consumes: reasoning, coding, language, multimodality and tool use. Their strategic ambition is naturally expansive because every layer above them can look like additional margin. If a model company can move from API to agent to application, why leave economics for someone else?</p>
+<p>But the countervailing force is model competition. A sophisticated application can increasingly route between multiple models, substitute a frontier API with an open-weight model, or use one model for planning and another for cheap extraction. That changes the strategic question from “who has access to intelligence?” to “who owns the context and workflow that makes intelligence useful?”</p>
+<div class="callout"><h4>A useful test</h4><p>If GPT, Claude or Gemini become five times better next year, does the startup become five times more valuable—or does the model absorb the startup’s functionality? The first case is a capability tailwind. The second is wrapper risk.</p></div>
+
+<h2 id="infra">Layer 2 — AI infrastructure: turning models into reliable economics</h2>
+<p>A model that runs once on a research GPU is not a product. Production inference has to answer a different set of questions: how many requests can the GPU serve at once, how much memory is wasted, how quickly can a fleet scale, how should the model be sharded, how should KV cache be managed, and how does a company deploy a new model without breaking latency or uptime?</p>
+
+<div class="diagram"><div class="diagram-title">From model weights to a production endpoint</div><div class="flow">
+<div class="node"><strong>Model weights</strong><span>Open or proprietary model</span></div><div class="arrow">→</div>
+<div class="node accent"><strong>Inference engine</strong><span>Batching, kernels, quantization, cache</span></div><div class="arrow">→</div>
+<div class="node"><strong>GPU scheduler</strong><span>Replicas, sharding, autoscaling</span></div><div class="arrow">→</div>
+<div class="node green"><strong>API endpoint</strong><span>Reliable, observable, low latency</span></div>
+</div></div>
+
+<p><strong>Fireworks</strong> pushes especially hard on specialized models plus highly optimized inference. <strong>Baseten</strong> historically starts from the production serving problem: take a model and make it a resilient endpoint. <strong>Together AI</strong> looks more like an open-model cloud that spans inference, fine-tuning and training. <strong>Modal</strong> sits at a more general compute layer and says, in effect, “give us the workload; we will give you elastic CPU/GPU execution.”</p>
+<p>The business model in this layer is unusually clean because the customer already has a cost line: GPU spend. If infrastructure reduces cost per token, latency or operational headcount, the ROI can be quantified directly.</p>
+
+<h2 id="runtime">Layer 3 — Runtimes: intelligence needs a body</h2>
+<p>An LLM can decide that it wants to open a website, call a customer, execute Python or modify a repository. It cannot physically do those things by itself. That creates a new category of infrastructure: <strong>specialized execution runtimes</strong>.</p>
+
+<div class="diagram"><div class="diagram-title">Reasoning vs. execution</div><div class="branch">
+<div class="node accent"><strong>Model / Agent</strong><span>Decides what should happen next</span></div>
+<div class="center">→</div>
+<div class="stack">
+<div class="node"><strong>Browserbase</strong><span>Browser runtime</span></div>
+<div class="node"><strong>ElevenLabs</strong><span>Voice runtime</span></div>
+<div class="node"><strong>Modal</strong><span>Compute / sandbox runtime</span></div>
+</div></div></div>
+
+<p><strong>Browserbase</strong> turns fleets of real Chromium browsers into infrastructure: sessions, cookies, proxies, identity, persistence, debugging, recording and concurrency. <strong>ElevenLabs</strong> treats voice as a full real-time system rather than “text-to-speech”: speech recognition, turn-taking, reasoning, tools and low-latency synthesis. <strong>Modal</strong> increasingly provides the secure machines in which agents execute code or long-running workloads.</p>
+<p>This is why the word <em>runtime</em> matters in AI. A model can be the brain, but an agent also needs somewhere for actions to occur.</p>
+
+<h2 id="apps">Layer 4 — Horizontal applications: redesigning a profession</h2>
+<p>The most valuable application companies are not simply adding a chat box to legacy software. They are changing the abstraction of the work itself. Cursor reframes software development around engineers supervising agents. Cognition reframes engineering tasks as delegatable digital labor. Clay reframes GTM as a programmable system. Glean reframes enterprise knowledge as a context layer for agents.</p>
+<p>Horizontal products can spread across industries because the job function exists everywhere. Their moat is often a combination of distribution, workflow state, integration depth and accumulated context—not merely a model.</p>
+
+<h2 id="vertical">Layer 5 — Vertical AI: the model is only the beginning</h2>
+<p>Harvey illustrates the path from a thin vertical wrapper to a serious vertical system. A legal AI product needs retrieval, document parsing, law-firm knowledge, matter-level permissions, legal evaluations, secure deployment, workflows, connectors, citations and eventually specialized post-training.</p>
+<div class="diagram"><div class="diagram-title">Vertical AI compounding loop</div><div class="flow">
+<div class="node"><strong>Domain workflow</strong><span>Real legal / medical / financial work</span></div><div class="arrow">→</div>
+<div class="node"><strong>Usage data</strong><span>Failures, edits, expert feedback</span></div><div class="arrow">→</div>
+<div class="node accent"><strong>Evals + post-training</strong><span>Improve domain behavior</span></div><div class="arrow">→</div>
+<div class="node green"><strong>Better product</strong><span>More adoption, richer workflow data</span></div>
+</div></div>
+<p>This loop is much harder for a generic model company to replicate than a prompt template. The vertical company is learning how a profession works, what “correct” means, which systems must be integrated, and where the human must remain in control.</p>
+
+<h2 id="agents">Layer 6 — Enterprise agents: from software seat to completed outcome</h2>
+<p>Traditional enterprise software sells a tool to a human. Enterprise agents increasingly sell the work itself. In customer service, a digital agent can identify the customer, retrieve policy, call internal systems, issue a refund, change a reservation or escalate an exception. The unit of value can therefore shift from a software seat to a completed resolution.</p>
+<p>This is why companies such as Sierra, Decagon and Salesforce Agentforce matter beyond “chatbots.” Their real competition is over who becomes the intelligent interface between customers and enterprise systems.</p>
+
+<div class="diagram"><div class="diagram-title">The pricing shift</div><div class="flow">
+<div class="node"><strong>Seat-based SaaS</strong><span>Pay for a human to use software</span></div><div class="arrow">→</div>
+<div class="node accent"><strong>Usage-based AI</strong><span>Pay for tokens, messages, calls</span></div><div class="arrow">→</div>
+<div class="node green"><strong>Outcome pricing</strong><span>Pay for resolved ticket, lead, task</span></div>
+</div></div>
+
+<h2 id="data">Layer 7 — Training data and evaluations: the new education industry</h2>
+<p>Early AI data labeling was straightforward: draw boxes around cars, pedestrians and traffic lights. Frontier models now need something qualitatively different. They need expert demonstrations, realistic environments, preference signals, verifiers and tasks that resemble actual professional work.</p>
+<p><strong>Scale AI</strong> came from large-scale labeling. <strong>Mercor</strong> came from recruiting and is turning an expert network into an intelligence supply chain. <strong>Snorkel AI</strong> came from programmatic labeling and treats data development as an engineering discipline. All three are converging on a more valuable frontier: training environments in which an agent can attempt a real task and receive a measurable reward.</p>
+
+<div class="diagram"><div class="diagram-title">Data 1.0 → Data 2.0</div><div class="flow">
+<div class="node"><strong>Label</strong><span>“This object is a car.”</span></div><div class="arrow">→</div>
+<div class="node"><strong>Preference</strong><span>“Response B is better.”</span></div><div class="arrow">→</div>
+<div class="node accent"><strong>Expert task</strong><span>“Build the correct diligence memo.”</span></div><div class="arrow">→</div>
+<div class="node green"><strong>RL environment</strong><span>Attempt → verify → reward → learn</span></div>
+</div></div>
+
+
+<h2 id="archetypes">Seven startup archetypes—and what they are really monetizing</h2>
+<p>Another useful way to read the market is to ignore product labels and ask which scarce resource the company is turning into revenue.</p>
+<table class="compare-table"><thead><tr><th>Archetype</th><th>What is scarce</th><th>What customers actually pay for</th><th>Representative companies</th></tr></thead><tbody>
+<tr><td>Model lab</td><td>Frontier intelligence and training capacity</td><td>Tokens, subscriptions, enterprise access</td><td>OpenAI, Anthropic, Google, Meta</td></tr>
+<tr><td>Inference / AI cloud</td><td>Efficient GPU utilization and model operations</td><td>Tokens, GPU hours, dedicated capacity</td><td>Fireworks, Baseten, Together</td></tr>
+<tr><td>Runtime</td><td>Reliable execution in a specialized environment</td><td>Browser hours, voice minutes, sandbox compute</td><td>Browserbase, ElevenLabs, Modal</td></tr>
+<tr><td>Horizontal application</td><td>Workflow productivity across many industries</td><td>Seats, usage, tasks, enterprise platform</td><td>Cursor, Cognition, Clay</td></tr>
+<tr><td>Vertical AI</td><td>Domain knowledge, trust and proprietary workflow</td><td>Enterprise software / digital labor economics</td><td>Harvey, Abridge</td></tr>
+<tr><td>Enterprise agent</td><td>Ability to complete a business outcome</td><td>Resolved task, interaction, outcome</td><td>Sierra, Decagon, Agentforce</td></tr>
+<tr><td>Training-data platform</td><td>High-quality expert signal and evaluation</td><td>Datasets, expert work, environments, programs</td><td>Mercor, Snorkel, Scale</td></tr>
+</tbody></table>
+<p>This framing makes business models easier to compare. Browserbase is not competing directly with Harvey, even if both participate in an agent workflow. Browserbase monetizes execution infrastructure; Harvey monetizes legal work. Fireworks can be underneath Harvey because one company earns infrastructure margin and the other earns workflow/domain margin.</p>
+
+<h2 id="convergence">The stack is modular—and vertically integrating at the same time</h2>
+<p>Two apparently contradictory things are happening. First, every layer is becoming more modular: applications can switch models, agents can call standardized tools, and infrastructure can serve many model families. Second, successful companies keep expanding into adjacent layers.</p>
+<p>Harvey begins at the legal application and moves downward into post-training. Fireworks begins in infrastructure and moves upward into model customization. Salesforce begins as a system of record and moves upward into agents. Replit begins as a development environment and moves outward into application runtime and enterprise software creation.</p>
+
+<div class="diagram"><div class="diagram-title">Why category boundaries blur</div><div class="flow">
+<div class="node"><strong>Application</strong><span>Own workflow</span></div><div class="arrow">↔</div>
+<div class="node accent"><strong>Agent layer</strong><span>Own decisions and tools</span></div><div class="arrow">↔</div>
+<div class="node"><strong>Model layer</strong><span>Own specialized intelligence</span></div><div class="arrow">↔</div>
+<div class="node green"><strong>Infrastructure</strong><span>Own cost and execution</span></div>
+</div></div>
+<p>The strategic challenge is choosing which adjacent layer strengthens the moat and which creates channel conflict. Fireworks can help Harvey build a legal model, but if Fireworks launches its own law-firm product, it risks becoming a competitor to its customers. Vertical integration is valuable only when it does not destroy the ecosystem that feeds the platform.</p>
+
+<h2 id="investor-lens">How to evaluate a new AI startup without getting lost in the hype</h2>
+<p>When I look at an AI company, I find six questions more useful than benchmark scores.</p>
+<ol>
+<li><strong>What existing budget does it replace?</strong> Software budget, labor budget, advertising budget, cloud spend, consulting spend or a completely new category?</li>
+<li><strong>What is the control point?</strong> Is it the interface, the data, the runtime, the transaction, the workflow or the system of record?</li>
+<li><strong>Does model progress help or hurt?</strong> A durable application wants stronger models to lower its cost or increase its capabilities, not eliminate the product.</li>
+<li><strong>What proprietary feedback loop exists?</strong> Usage data, outcomes, expert corrections, latency economics, integration state or unique distribution?</li>
+<li><strong>Can the incumbent copy the feature without changing its business model?</strong> If yes, distribution becomes critical. If no, the startup may have an innovator’s-dilemma wedge.</li>
+<li><strong>What does the company become if it wins?</strong> A feature, a product, a system of record, a platform or a labor marketplace?</li>
+</ol>
+
+<div class="callout"><h4>The strongest pattern</h4><p>The most compelling AI startups usually begin with a narrow wedge, acquire workflow or data through usage, then expand into a system. Wedge → workflow → system → platform is more defensible than “launch a broad AI assistant and hope people stay.”</p></div>
+
+<h2 id="moats">Seven kinds of moat</h2>
+<table class="compare-table"><thead><tr><th>Moat</th><th>What it means</th><th>Examples</th></tr></thead><tbody>
+<tr><td>Model</td><td>Specialized training or proprietary model behavior</td><td>Fireworks, Harvey</td></tr>
+<tr><td>Data</td><td>Proprietary outcomes, expert examples, behavioral signal</td><td>Mercor, Snorkel</td></tr>
+<tr><td>Workflow</td><td>Deep ownership of how a job is actually performed</td><td>Harvey, Clay, Sierra</td></tr>
+<tr><td>Integration</td><td>Connectivity and permissions across business systems</td><td>Zapier, Clay</td></tr>
+<tr><td>Runtime</td><td>Difficult execution infrastructure</td><td>Modal, Browserbase, Baseten</td></tr>
+<tr><td>Distribution</td><td>Users, community, habit or enterprise relationship</td><td>Cursor, Replit, Lovable</td></tr>
+<tr><td>System of record</td><td>Authoritative business data</td><td>Salesforce, HubSpot</td></tr>
+</tbody></table>
+
+<h2 id="incumbents">Why incumbents do not automatically win</h2>
+<p>A large technology company can usually replicate a feature. The harder problem is organizational and economic. Existing customers, revenue models, product architecture and internal ownership can make a technically obvious move strategically awkward.</p>
+<p>Canva did not beat Adobe by building a more powerful Photoshop; it made design accessible to non-designers. Notion did not build a better Word; it replaced the file/application abstraction with pages, blocks and databases. Clay did not replace Salesforce on day one; it occupied the messy orchestration layer before a lead becomes a clean CRM record.</p>
+<blockquote>The most interesting startup opportunity is often not “the incumbent cannot build this.” It is “the incumbent can build this, but doing it first conflicts with what made the incumbent successful.”</blockquote>
+
+<h2 id="conclusion">The market is moving from software to work</h2>
+<p>The deepest transition is not “AI features in SaaS.” It is a change in the unit being sold. Software used to sell a tool that a human operated. Copilots sell productivity. Agents increasingly sell an action, a resolved problem, a qualified lead, a code change, a legal review, a customer conversation or an inference workload.</p>
+<div class="diagram"><div class="diagram-title">The evolution of software economics</div><div class="flow">
+<div class="node"><strong>Software</strong><span>Human uses a tool</span></div><div class="arrow">→</div>
+<div class="node"><strong>Copilot</strong><span>Human + AI do the work</span></div><div class="arrow">→</div>
+<div class="node accent"><strong>Agent</strong><span>Human delegates the work</span></div><div class="arrow">→</div>
+<div class="node green"><strong>Digital labor</strong><span>Pay for the completed outcome</span></div>
+</div></div>
+<p>That is why the most useful questions in AI are no longer limited to “who has the best model?” They are: who owns context, who owns the interface, who owns action, who owns execution, who owns the system of record, and who owns distribution? Those layers determine where durable economics can accumulate.</p>
+
+<h2 id="sources">Selected sources</h2>
+<ul class="source-list">
+<li><a href="https://fireworks.ai/blog/series-d-announcement">Fireworks — Series D and company metrics</a></li>
+<li><a href="https://www.baseten.co/blog/announcing-our-series-f/">Baseten — Series F</a></li>
+<li><a href="https://modal.com/blog/modal-series-c">Modal — Series C</a></li>
+<li><a href="https://browserbase.com/blog/what-is-a-browserbase-browser">Browserbase — browser infrastructure</a></li>
+<li><a href="https://www.harvey.ai/blog/harvey-raises-dollar550m-at-a-dollar155b-valuation-to-help-legal-teams-own-their-intelligence">Harvey — financing and product direction</a></li>
+<li><a href="https://snorkel.ai/blog/data-2-0-and-the-research-era-of-ai-data/">Snorkel AI — Data 2.0</a></li>
+</ul>
+</article><aside class="aside"><div class="aside-card"><b>Core lens</b><p>Where does durable value sit if models continue getting better and cheaper?</p></div></aside></div></section></main><footer class="footer"><div class="site-shell footer-inner"><div><div class="brand"><span class="brand-mark">AY</span><span>Anna Yuli Wen</span></div><p class="footer-note">AI × Product × GTM / Growth · New York</p></div><p>Connecting company moves, technical primitives, product strategy, and business models into one coherent map of the AI economy.</p></div></footer><script src="../site-data.js"></script><script src="../script.js"></script></body></html>
